@@ -11,6 +11,11 @@ if __name__ == "__main__":
             count = int(line)
         count += 1
 
+    # Aborting if counter value can't be initialized
+    if count == -1:
+        print("Error loading the counter value")
+        exit(1)
+
     # Rebasing
     print("\nRebasing\n")
     vc.rebase_from_upstream()
