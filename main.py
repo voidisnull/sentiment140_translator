@@ -2,6 +2,10 @@ import asyncio
 from source import translate, vc
 
 if __name__ == "__main__":
+    # Rebasing
+    print("Rebasing\n")
+    vc.rebase_from_upstream()
+
     count: int = -1
 
     # Loading completed count from the file
@@ -15,10 +19,6 @@ if __name__ == "__main__":
     if count == -1:
         print("Error loading the counter value")
         exit(1)
-
-    # Rebasing
-    print("Rebasing\n")
-    vc.rebase_from_upstream()
 
     print(f"Translating {count}th chunk\n")
 
