@@ -2,7 +2,7 @@ import asyncio
 from source import translate, vc
 
 if __name__ == "__main__":
-    count: int = 0
+    count: int = -1
 
     # Loading completed count from the file
     with open("counter.txt", "r") as fin:

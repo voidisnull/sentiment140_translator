@@ -11,14 +11,12 @@ def update_counter_and_commit(counterPath: str) -> None:
         counterPath: path where the counter variable is stored
     """
 
-    with open(counterPath, "w+") as fio:
-        count: int = -1
+    with open(counterPath, "r+") as fio:
         line: str = fio.read()
-        if line:
-            count = int(line)
-        if count != -1:
-            count += 1
-        fio.truncate()
+        count: int = int(line) if line.strip() else -1
+        count += 1
+        fio.seek(0)  # Go back to start of file
+        fio.truncate()  # Clear the file
         fio.write(f"{count}\n")
 
     # Add files to the staging area
