@@ -20,6 +20,8 @@ if __name__ == "__main__":
     print("Rebasing\n")
     vc.rebase_from_upstream()
 
+    print(f"Translating {count}th chunk\n")
+
     # First pushing the counter value to main
     vc.update_counter_and_commit("counter.txt")
     vc.push_origin()
