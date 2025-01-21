@@ -6,7 +6,9 @@ if __name__ == "__main__":
 
     # Loading completed count from the file
     with open("counter.txt", "r") as fin:
-        count = int(fin.readline())
+        line = fin.readline().strip()
+        if line:
+            count = int(line)
         count += 1
 
     # Rebasing

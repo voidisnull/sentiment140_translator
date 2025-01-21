@@ -11,11 +11,15 @@ def update_counter_and_commit(counterPath: str) -> None:
         counterPath: path where the counter variable is stored
     """
 
-    with open(counterPath, "r+") as fio:
-        count: int = int(fio.readline().strip())
-        count += 1
+    with open(counterPath, "w+") as fio:
+        count: int = -1
+        line = fio.readline().strip()
+        if line:
+            count = int(line)
+        if not count == -1:
+            count += 1
         fio.truncate()
-        fio.writelines(count)
+        fio.write(f"{count}\n")
 
     # Add files to the staging area
     repo.git.add(A=True)
