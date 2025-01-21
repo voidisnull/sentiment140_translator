@@ -17,7 +17,7 @@ if __name__ == "__main__":
         exit(1)
 
     # Rebasing
-    print("\nRebasing\n")
+    print("Rebasing\n")
     vc.rebase_from_upstream()
 
     # First pushing the counter value to main
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     )
 
     # Pushing the translated dataset to main
-    print("\nPushing the changes to upstream\n")
+    print("\nPushing the changes to upstream")
     vc.add_dataset_chunk(count)
     vc.push_origin()
 
