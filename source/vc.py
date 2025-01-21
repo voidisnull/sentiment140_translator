@@ -13,10 +13,10 @@ def update_counter_and_commit(counterPath: str) -> None:
 
     with open(counterPath, "w+") as fio:
         count: int = -1
-        line = fio.readline().strip()
+        line: str = fio.read()
         if line:
             count = int(line)
-        if not count == -1:
+        if count != -1:
             count += 1
         fio.truncate()
         fio.write(f"{count}\n")
