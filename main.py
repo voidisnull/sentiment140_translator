@@ -33,6 +33,7 @@ if __name__ == "__main__":
 
     # Pushing the translated dataset to main
     print("\nPushing the changes to upstream")
+    vc.rebase_from_upstream()
     vc.add_dataset_chunk(count)
     vc.push_origin()
 
