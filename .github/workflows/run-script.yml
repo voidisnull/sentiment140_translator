@@ -1,14 +1,17 @@
-name: Run the translation script after every 4 hours
+name: Run the translation script periodically
 
-# Schedule the workflow to run every 4 hours
+# Schedule the workflow to run every 6 hours
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
+    concurrency:
+      group: run-script
+      cancel-in-progress: false
 
     steps:
         # Check out the repository code
