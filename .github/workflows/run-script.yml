@@ -31,3 +31,14 @@ jobs:
         # Run Python script
       - name: Run Python script
         run: python main.py
+
+      # Commit changes
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git commit -m "Update generated files"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
