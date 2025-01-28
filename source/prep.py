@@ -11,6 +11,12 @@ def extract_labels_and_text(rawData: str, featureSet: str) -> None:
     df = pd.read_csv(rawData, encoding="latin1", header=None)
     df.columns = ["Polarity", "Tweet ID", "Time", "Query", "User", "Tweet"]
 
+    # Pre-processing data
+    df["Tweet"] = df["Tweet"].astype(str).str.replace(r"@[\w_]+", "USER", regex=True)
+    df["Tweet"] = df["Tweet"].astype(str).str.replace(r"http\S+", "URL", regex=True)
+    df["Tweet"] = df["Tweet"].astype(str).str.strip()
+    df["Polarity"] = df["Polarity"].apply(lambda x: 1 if x == 4 else 0)
+
     # Resolving html syntax sequences
     df["Tweet"] = df["Tweet"].apply(html.unescape)
 
@@ -25,6 +31,7 @@ def split_data_into_chunks(
     i.e. of 10,000 rows each
     """
     df = pd.read_csv(featureSet, header=None)
+    df = df.sample(frac=1, random_state=42).reset_index(drop=True)
 
     chunks = [df[i : i + chunk_size] for i in range(0, len(df), chunk_size)]
 
