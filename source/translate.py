@@ -9,7 +9,7 @@ async def translate_row(
     translator: googletrans.Translator,
     tweet: str,
     target_lang: str,
-    retries: int = 4,
+    retries: int = 6,
     retry_delay: int = 10,
 ) -> Optional[str]:
     """
@@ -43,7 +43,7 @@ async def translate_row(
 
 
 async def translate_dataset(
-    series: pd.Series, target_lang: str = "hi", delay: float = 0.3
+    series: pd.Series, target_lang: str = "hi", delay: float = 0.35
 ) -> pd.Series:
     """
     Translates a pandas Series to the target language.
