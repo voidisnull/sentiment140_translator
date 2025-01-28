@@ -1,5 +1,5 @@
 import asyncio
-from source import translate, vc
+from source import translate
 
 if __name__ == "__main__":
     count: int = -1
