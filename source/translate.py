@@ -3,6 +3,7 @@ import asyncio
 import pandas as pd
 from typing import Optional
 from tqdm import tqdm
+import os
 
 
 async def translate_row(
@@ -76,7 +77,7 @@ async def translate_dataset(
     return translated_series
 
 
-async def main(inDir: str, outDir: str) -> None:
+async def main(inDir: str, outDir: str, outFolder: str) -> None:
     # Asynchronous main function
 
     df = pd.read_csv(inDir, header=None)
@@ -89,6 +90,7 @@ async def main(inDir: str, outDir: str) -> None:
     # df_head.loc[:, 1] = await translate_dataset(df_head[1])
     # df_head.to_csv(outDir, index=False, header=False)
 
+    os.mkdir(outFolder)
     df.to_csv(outDir, index=False, header=False)
 
 

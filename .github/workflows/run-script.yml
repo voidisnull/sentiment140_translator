@@ -1,9 +1,9 @@
 name: Run the translation script periodically
 
-# Schedule the workflow to run every 4 hours
+# Schedule the workflow to run every 6 hours
 on:
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:

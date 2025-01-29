@@ -20,7 +20,11 @@ if __name__ == "__main__":
 
     # Starting the translating function
     asyncio.run(
-        translate.main(f"dataset/train_en/{count}.csv", f"dataset/train_hi/{count}.csv")
+        translate.main(
+            f"dataset/train_en/{count}.csv",
+            f"dataset/train_hi/{count}.csv",
+            "dataset/train_hi/",
+        )
     )
 
     print("\nProcess Finished!!")
