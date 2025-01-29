@@ -11,7 +11,7 @@ if __name__ == "__main__":
             count = int(line)
         count += 1
         fin.seek(0)
-        fin.write(count)
+        fin.write(str(count))
 
     # Aborting if counter value can't be initialized
     if count == -1:
