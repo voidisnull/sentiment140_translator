@@ -23,7 +23,6 @@ if __name__ == "__main__":
         translate.main(
             f"dataset/train_en/{count}.csv",
             f"dataset/train_hi/{count}.csv",
-            "dataset/train_hi/",
         )
     )
 
