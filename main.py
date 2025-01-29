@@ -5,11 +5,13 @@ if __name__ == "__main__":
     count: int = -1
 
     # Load completed count from the file
-    with open("counter.txt", "r") as fin:
+    with open("counter.txt", "r+") as fin:
         line = fin.readline().strip()
         if line:
             count = int(line)
         count += 1
+        fin.seek(0)
+        fin.write(count)
 
     # Aborting if counter value can't be initialized
     if count == -1:
